@@ -10,13 +10,20 @@ magic = '$1$'
 base64 = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 altSum = md5((passwd + salt + passwd).encode())
+# altSum = md5()
+# altSum.update(passwd)
+# altSum.update(salt)
+# altSum.update(passwd)
+
 print("The byte equivalent of hash is : ", end ="") 
 print(altSum.hexdigest())
 
 print(altSum.digest_size)
-t = passwd + magic + salt
+# t = passwd + magic + salt
+intSum = md5((passwd + magic + salt).encode())
 if(altSum.digest_size > len(passwd)):
-	t = passwd + magic + salt + str((altSum.digest()[:len(passwd)]))
+	# t = passwd + magic + salt + str((altSum.digest()[:len(passwd)]))
+	intSum.update((altSum.digest()[:len(passwd)]))
 
 else:
 	print("passwd longer")
@@ -32,15 +39,18 @@ length = "{0:b}".format(len(passwd))
 length = length[::-1]
 for i, c in enumerate(length):
 	if(c == '1'):
-		t = t + passwd[i]
+		# t = t + passwd[i]
+		intSum.update(passwd[i].encode())
 		sig = 1
 	else:
 		# if(sig == 1):
 		# 	break
-		t = t + '0'
+		# t = t + '0'
+		intSum.update('x00'.encode())
 
-print(t)	
-intSum = md5(t.encode())
+# print(t)	
+# intSum = md5(t.encode())
+print(intSum.digest())
 print(intSum.hexdigest())
 
 i = 0
