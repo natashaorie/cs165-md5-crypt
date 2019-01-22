@@ -108,6 +108,10 @@ while(i < 1000):
 
 print(currIntSum.digest())
 print(currIntSum.hexdigest())
+	
+print("{0:b}".format(currIntSum.hexdigest()))
+length = "{0:b}".format(currIntSum.hex digest())
+length = length[::-1]
 # for l in letters:
 
 # result = hashlib.md5(b'GeeksforGeeks') 
