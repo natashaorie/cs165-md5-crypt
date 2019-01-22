@@ -15,7 +15,7 @@ altSum = md5((passwd + salt + passwd).encode())
 # altSum.update(salt)
 # altSum.update(passwd)
 
-print("The byte equivalent of hash is : ", end ="") 
+print("The byte equivalent of hash is : ", end ="")
 print(altSum.digest())
 
 # print(altSum.digest_size)
@@ -65,7 +65,7 @@ for c in length:
 	else:
 		intSum.update(b'\x00')
 
-# print(t)	
+# print(t)
 # intSum = md5(t.encode())
 print(intSum.digest())
 print(intSum.hexdigest())
@@ -83,7 +83,7 @@ while(i < 1000):
 
 	if(i % 2 == 0):
 		nextIntSum.update(currIntSum.digest())
-		
+
 	if(i % 2 != 0):
 		nextIntSum.update(passwd.encode())
 
@@ -108,13 +108,25 @@ while(i < 1000):
 
 print(currIntSum.digest())
 print(currIntSum.hexdigest())
+
+c = 1
+convertNum;
+asciiNum;
+for i in currIntSum:
+	if c == 1:
+		convertNum = i
+		c = 2
+	else:
+		convertNum += i
+		asciiNum = convertNum->asciiNum
+		c = 1
 # for l in letters:
 
-# result = hashlib.md5(b'GeeksforGeeks') 
+# result = hashlib.md5(b'GeeksforGeeks')
 # result = md5(b'GeeksforGeeks')
- 
 
-# printing the equivalent byte value. 
-# print("The byte equivalent of hash is : ", end ="") 
+
+# printing the equivalent byte value.
+# print("The byte equivalent of hash is : ", end ="")
 # print(result.digest())
 # print(result.hexdigest())
