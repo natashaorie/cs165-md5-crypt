@@ -74,33 +74,40 @@ print(intSum.hexdigest())
 
 
 i = 0
+
+currIntSum = intSum
+nextIntSum = md5()
 while(i < 1000):
-	t = ''
+	# print(currIntSum.hexdigest())
+	# t = ''
 
 	if(i % 2 == 0):
-		# t += intSum
-		pass
+		nextIntSum.update(currIntSum.digest())
 		
 	if(i % 2 != 0):
-		t += passwd
+		nextIntSum.update(passwd.encode())
 
 	if(i % 3 != 0):
-		t += salt
+		nextIntSum.update(salt.encode())
 
 	if(i % 7 != 0):
-		t += passwd
+		nextIntSum.update(passwd.encode())
 
 	if(i % 2 == 0):
-		t += passwd
+		nextIntSum.update(passwd.encode())
 
 	if(i % 2 != 0):
-		# add intSum
-		pass
+		nextIntSum.update(currIntSum.digest())
 
-	intSum = md5(t.encode())
+	currIntSum = nextIntSum
+	nextIntSum = md5()
+
+	# intSum = md5(t.encode())
 	i += 1
 
 
+print(currIntSum.digest())
+print(currIntSum.hexdigest())
 # for l in letters:
 
 # result = hashlib.md5(b'GeeksforGeeks') 
