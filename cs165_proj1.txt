@@ -1,0 +1,6 @@
+Team 30: Natasha Orie, Kaitlyn Shih
+
+Password: abirdl
+Threads: 4
+CPU: 1 vCPU Intel Skylake (GCP)
+Throughput: ~ 1300 passwords/sec
